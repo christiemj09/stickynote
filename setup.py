@@ -14,7 +14,7 @@ def main():
 		'download_url': 'https://github.com/christiemj09/stickynote.git',
 		'author_email': 'christiemj09@gmail.com',
 		'version': '0.1',
-		'install_requires': [],
+		'install_requires': ['psycopg2-binary', 'sqlalchemy'],
 		'packages': ['stickynote'],
 		'scripts': [],
 		'entry_points': {
