@@ -7,7 +7,7 @@ import sys
 
 from config import from_config
 from ringmaster.sql import DatabaseEnvironment
-import tag
+from stickynote import tag
 
 
 def main(mgr_class, mgr_kwargs, tags):
