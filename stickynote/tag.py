@@ -4,8 +4,6 @@ Tag database objects, where the meaning of a tag is defined by application code.
 
 from sqlalchemy import select, text
 
-import tag_functions as tf
-
 
 PG_CLASS = 'pg_class'
 INFORMATION_SCHEMA = 'information_schema'
