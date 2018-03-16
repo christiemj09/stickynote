@@ -10,7 +10,6 @@ from ringmaster.sql import DatabaseEnvironment
 import tag
 
 
-@from_config
 def main(mgr_class, mgr_kwargs, tags):
     TagManager = getattr(tag, mgr_class)
     with DatabaseEnvironment() as env:
@@ -22,9 +21,9 @@ def main(mgr_class, mgr_kwargs, tags):
             mgr.insert()
 
 
+def console_script():
+    from_config(main)(sys.argv[1])
+
+
 if __name__ == '__main__':
-    main(sys.argv[1])
-
-
-
-
+    console_script()
