@@ -2,8 +2,13 @@
 Tag database objects, where the meaning of a tag is defined by application code.
 """
 
+import sys
+from importlib import import_module
+
 from sqlalchemy import select, text
 
+# Add working directory to module locations
+sys.path.insert(0, '')
 
 PG_CLASS = 'pg_class'
 INFORMATION_SCHEMA = 'information_schema'
@@ -17,7 +22,7 @@ class TagManager(object):
     def __init__(self, schema, table, col, tag, module, func, env):
         self.env = env
         self.tag = tag
-        self.func = getattr(__import__(module), func)(tag)
+        self.func = getattr(import_module(module), func)(tag)
         self.table = env.Table(table, schema=schema)
         self.tag_col = getattr(self.table.c, col)
         self.cols = [col.name for col in self.table.c]
