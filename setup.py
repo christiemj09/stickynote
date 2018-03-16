@@ -18,7 +18,10 @@ def main():
 		'packages': ['stickynote'],
 		'scripts': [],
 		'entry_points': {
-		    'console_scripts': [],
+		    'console_scripts': [
+		        'init_tag_tables=stickynote.init_tag_tables:console_script',
+		        'insert_tags=stickynote.insert_tags:console_script',
+		    ],
 		},
 		'name': 'stickynote',
 	}
